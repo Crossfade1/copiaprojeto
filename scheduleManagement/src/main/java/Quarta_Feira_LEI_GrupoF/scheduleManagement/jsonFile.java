@@ -10,20 +10,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class jsonFile {
     
-    private List<String> data;
+    private List<String[]> data;
     
     public jsonFile(String filename) throws IOException {
         // Read the JSON file and deserialize its contents into a list of strings
         ObjectMapper mapper = new ObjectMapper();
-        this.data = mapper.readValue(new File(filename), new TypeReference<List<String>>() {});
+        this.data = mapper.readValue(new File(filename), new TypeReference<List<String[]>>() {});
     }
     
-    public jsonFile(List<String> data) {
+    public jsonFile(List<String[]> data) {
         // Initialize the JsonFile with a list of strings
         this.data = data;
     }
     
-    public List<String> getList() {
+    public List<String[]> getList() {
         return this.data;
     }
     
